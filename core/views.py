@@ -19,6 +19,6 @@ def cars(request, car):
     }
 
     description = cars_list[car]
-    return HttpResponse(f'{car}' + description)
+    return HttpResponse(f'<h2>{car}</h2><br>' + description)
 
 
