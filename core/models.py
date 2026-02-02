@@ -10,6 +10,7 @@ class Menu(models.Model):
     def __str__(self):
         return self.name + " " + self.cuisine
 
+
 class DrinksCategory(models.Model):
     category_name = models.CharField(max_length=200)
 

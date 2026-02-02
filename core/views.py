@@ -43,4 +43,7 @@ def book(request):
     else:
         form = BookingForm()
 
-    return render(request, 'core/form.html', {'form': form})
+    return render(request, 'form.html', {'form': form})
+
+def about(request):
+    return render(request, 'about.html', {'about': 'This is a dynamic content'})
