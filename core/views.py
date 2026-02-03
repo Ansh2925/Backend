@@ -3,10 +3,12 @@ from datetime import datetime
 from django.shortcuts import render, redirect
 from .forms import Login, BookingForm
 
+from .models import Menu
 
 
-def home(request):
-    return HttpResponse("<h1>Home</h1>")
+
+# def home(request):
+#     return HttpResponse("<h1>Home</h1>")
 
 def curr_date(request):
     current = datetime.today().ctime()
@@ -45,5 +47,25 @@ def book(request):
 
     return render(request, 'form.html', {'form': form})
 
+# def about(request):
+#     return render(request, 'about.html', {'about': 'This is a dynamic content'})
+
+def menu_by_id(request):
+    newMenu = Menu.objects.all()  # newMenu stores all values(which presents in the database) presents in menu model
+    newMenu_dict = {'menu' : newMenu}
+
+    return render(request, 'menu.html', newMenu_dict)
+
+
+
+def home(request):
+    return render(request, 'index.html')
+
 def about(request):
-    return render(request, 'about.html', {'about': 'This is a dynamic content'})
+    return render(request, 'about.html')
+
+def menu(request):
+    return render(request, 'menu.html')
+
+def book(request):
+    return render(request, 'book.html')
